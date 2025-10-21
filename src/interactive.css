@@ -1,0 +1,356 @@
+/* ========================================
+   MODERN INTERACTIVE ENHANCEMENTS
+   ======================================== */
+
+/* Glassmorphism Effect for Cards */
+.project-card-view,
+.blog-card-view,
+.quote-card-view {
+  background: rgba(21, 47, 56, 0.4) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(0, 217, 255, 0.2) !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.project-card-view::before,
+.blog-card-view::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(0, 217, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+.project-card-view:hover::before,
+.blog-card-view:hover::before {
+  opacity: 1;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+.project-card-view:hover,
+.blog-card-view:hover {
+  transform: translateY(-10px) scale(1.03) !important;
+  box-shadow: 
+    0 20px 40px rgba(0, 217, 255, 0.3),
+    0 0 60px rgba(0, 217, 255, 0.2) !important;
+  border: 1px solid rgba(0, 217, 255, 0.5) !important;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced Button Animations */
+.btn-primary,
+.fork-btn-inner,
+.like-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease !important;
+}
+
+.btn-primary::after,
+.fork-btn-inner::after,
+.like-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover::after,
+.fork-btn-inner:hover::after,
+.like-btn:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-primary:hover,
+.fork-btn-inner:hover,
+.like-btn:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4) !important;
+}
+
+/* Tech Stack Icons - 3D Effect */
+.tech-icons {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  cursor: pointer;
+  position: relative;
+}
+
+.tech-icons::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+.tech-icons:hover {
+  transform: translateY(-10px) rotateY(10deg) rotateX(10deg) !important;
+  box-shadow: 
+    0 15px 40px rgba(0, 217, 255, 0.4),
+    0 0 30px rgba(0, 217, 255, 0.3) !important;
+}
+
+.tech-icons:hover::after {
+  opacity: 1;
+}
+
+/* Social Icons - Enhanced Pulse */
+.home-social-icons,
+.social-icons a {
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+}
+
+.home-social-icons:hover {
+  transform: translateY(-5px) rotate(360deg) !important;
+  animation: socialPulse 1s infinite !important;
+}
+
+@keyframes socialPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff;
+  }
+  50% {
+    box-shadow: 0 0 20px #00d9ff, 0 0 40px #00d9ff, 0 0 60px #00d9ff;
+  }
+}
+
+/* Navbar - Smooth Glass Effect */
+.navbar {
+  transition: all 0.3s ease !important;
+}
+
+.sticky {
+  background: rgba(15, 32, 39, 0.8) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(0, 217, 255, 0.1) !important;
+}
+
+/* Navigation Links - Smooth Underline */
+.navbar-nav .nav-item a {
+  position: relative;
+}
+
+.navbar-nav .nav-item a::after {
+  transition: width 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+}
+
+/* Page Transitions */
+.home-section,
+.about-section,
+.project-section,
+.resume-section {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typewriter Effect - Enhanced */
+.Typewriter__wrapper {
+  background: linear-gradient(90deg, #06b6d4, #00d9ff, #06b6d4);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}
+
+/* Achievement Cards - Flip Effect */
+.project-card {
+  perspective: 1000px;
+}
+
+.project-card-view {
+  transform-style: preserve-3d;
+}
+
+/* Smooth Image Loading */
+img {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+/* Footer - Subtle Hover */
+.footer-icons .social-icons a {
+  transition: all 0.3s ease;
+}
+
+.footer-icons .social-icons a:hover {
+  transform: translateY(-5px) scale(1.2);
+  filter: drop-shadow(0 0 10px #00d9ff);
+}
+
+/* Loading Animations for Content */
+.fade-in {
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Parallax Effect for Images */
+.about-img img,
+.myAvtar img {
+  transition: transform 0.3s ease;
+}
+
+.about-img:hover img,
+.myAvtar:hover img {
+  transform: scale(1.1) rotate(2deg);
+}
+
+/* Enhanced Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #1a3a47 0%, #0f2027 100%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00d9ff 0%, #0891b2 100%);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #06b6d4 0%, #00d9ff 100%);
+  box-shadow: 0 0 10px #00d9ff;
+}
+
+/* Text Selection */
+::selection {
+  background: rgba(0, 217, 255, 0.3);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: rgba(0, 217, 255, 0.3);
+  color: #ffffff;
+}
+
+/* Floating Animation for Avatar */
+.myAvtar img {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Project Card Image Zoom */
+.card-img-top {
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
+.project-card-view:hover .card-img-top {
+  transform: scale(1.1);
+}
+
+/* Achievement Card Reveal Animation */
+.project-card {
+  opacity: 0;
+  animation: revealCard 0.6s ease forwards;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
+.project-card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes revealCard {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .project-card-view:hover {
+    transform: translateY(-5px) scale(1.02) !important;
+  }
+  
+  .tech-icons:hover {
+    transform: translateY(-5px) scale(1.05) !important;
+  }
+}
